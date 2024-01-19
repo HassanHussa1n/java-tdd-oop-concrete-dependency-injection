@@ -4,20 +4,41 @@ import java.util.ArrayList;
 
 public class Computer {
     public ArrayList<Game> installedGames = new ArrayList<>();
+    PowerSupply ps;
+    ArrayList<Game> g;
+    Game game1;
+
+
+    public Computer(PowerSupply ps) {
+       this.ps = ps;
+
+
+    }
+
+    public Computer(PowerSupply ps, ArrayList<Game> g) {
+
+        this.ps = ps;
+        this.g = g;
+
+        installedGames.addAll(g);
+
+
+    }
 
     public void turnOn() {
-        PowerSupply psu = new PowerSupply();
-        psu.turnOn();
+        ps.turnOn();
     }
 
-    public void installGame() {
-        Game game = new Game("Morrowind");
-        this.installedGames.add(game);
+    public void installGame(String game) {
+        Game game2 = new Game(game);
+        this.installedGames.add(game2);
+
     }
 
-    public String playGame() {
+    public String playGame(String name) {
+
         for (Game g : this.installedGames) {
-            if (g.name.equals("Morrowind")) {
+            if (g.name.equals(name)) {
                 return g.start();
             }
         }
