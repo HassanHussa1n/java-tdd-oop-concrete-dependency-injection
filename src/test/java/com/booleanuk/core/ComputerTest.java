@@ -19,24 +19,26 @@ class ComputerTest {
     public void shouldInstallGames() {
         PowerSupply myPsu = new PowerSupply();
         Computer myPc = new Computer(myPsu);
+        Game newGame = new Game(myPc);
 
-        myPc.installGame("Final Fantasy XI");
+        newGame.installGame("Final Fantasy XI");
 
-        Assertions.assertEquals(1, myPc.installedGames.size());
-        Assertions.assertEquals("Final Fantasy XI", myPc.installedGames.get(0).name);
+        Assertions.assertEquals(1, newGame.installedGames.size());
+        Assertions.assertEquals("Final Fantasy XI", newGame.installedGames.get(0).name);
     }
 
     @Test
     public void shouldPlayGames() {
         PowerSupply myPsu = new PowerSupply();
         Computer myPc = new Computer(myPsu);
+        Game newGame = new Game(myPc);
 
-        myPc.installGame("Duck Game");
-        myPc.installGame("Dragon's Dogma: Dark Arisen");
+        newGame.installGame("Duck Game");
+        newGame.installGame("Dragon's Dogma: Dark Arisen");
 
-        Assertions.assertEquals("Playing Duck Game", myPc.playGame("Duck Game"));
-        Assertions.assertEquals("Playing Dragon's Dogma: Dark Arisen", myPc.playGame("Dragon's Dogma: Dark Arisen"));
-        Assertions.assertEquals("Game not installed", myPc.playGame("Morrowind"));
+        Assertions.assertEquals("Playing Duck Game", newGame.playGame("Duck Game"));
+        Assertions.assertEquals("Playing Dragon's Dogma: Dark Arisen", newGame.playGame("Dragon's Dogma: Dark Arisen"));
+        Assertions.assertEquals("Game not installed", newGame.playGame("Morrowind"));
     }
 
     @Test

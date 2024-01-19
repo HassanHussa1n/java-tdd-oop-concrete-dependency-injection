@@ -29,20 +29,5 @@ public class Computer {
         ps.turnOn();
     }
 
-    public void installGame(String game) {
-        Game game2 = new Game(game);
-        this.installedGames.add(game2);
 
-    }
-
-    public String playGame(String name) {
-
-        for (Game g : this.installedGames) {
-            if (g.name.equals(name)) {
-                return g.start();
-            }
-        }
-
-        return "Game not installed";
-    }
 }
